@@ -9,8 +9,8 @@ public class GameControl : MonoBehaviour
     List<ChipNMAgentCotnrol> _chipsList;
     private void Start()
     {
-        _winPosInsexs = TxtConverter.winPosNumList;
-        _posList = TxtConverter.posList;
+        _winPosInsexs = TxtConverter.GetWinPosNumList();
+        _posList = TxtConverter.GetPositionList();
         ChipCreater.OnChipsCreateEvent += GetChips;
     }
     private void OnDestroy()

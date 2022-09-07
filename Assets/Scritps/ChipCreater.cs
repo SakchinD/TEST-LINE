@@ -29,7 +29,7 @@ public class ChipCreater : MonoBehaviour
     }
     void CreateChips()
     {
-        List<int> posIndexList = TxtConverter.startPosNumList;
+        List<int> posIndexList = TxtConverter.GetStartPosNumList();
         for(int i = 0; i < posIndexList.Count;i++)
         {
             ChipNMAgentCotnrol chipObj = _factory.CreateChip(_positionList[posIndexList[i] - 1].position, 

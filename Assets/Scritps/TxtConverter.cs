@@ -6,20 +6,20 @@ using UnityEngine;
 public class TxtConverter : MonoBehaviour
 {
     public TextAsset textAsset;
-    public static List<Vector3> posList { get; private set; }
-    public static List<int[]> pairList { get; private set; }
-    public static List<int> startPosNumList { get; private set; }
-    public static List<int> winPosNumList { get; private set; }
-    public static int chipCount { get; private set; }
+    static List<Vector3> _posList;
+    static List<int[]> _pairList;
+    static List<int> _startPosNumList;
+    static List<int> _winPosNumList;
+    static int _chipCount;
 
     List<string> _textArr;
     
     private void Awake()
     {
-        posList = new List<Vector3>();
-        pairList = new List<int[]>();
-        startPosNumList = new List<int>();
-        winPosNumList = new List<int>();
+        _posList = new List<Vector3>();
+        _pairList = new List<int[]>();
+        _startPosNumList = new List<int>();
+        _winPosNumList = new List<int>();
         ReadTextFile();
     }
 
@@ -35,7 +35,7 @@ public class TxtConverter : MonoBehaviour
             float x = float.Parse(splitString[0]);
             float y = float.Parse(splitString[1]);
             float z = float.Parse(splitString[2]);
-            posList.Add(new Vector3(x, y, z));
+            _posList.Add(new Vector3(x, y, z));
         }
 
         int pairNum = int.Parse(_textArr[pointCount]);
@@ -47,16 +47,16 @@ public class TxtConverter : MonoBehaviour
             int first = int.Parse(splitString[0]);
             int second = int.Parse(splitString[1]);
             int[] pairs = { first, second };
-            pairList.Add(pairs);
+            _pairList.Add(pairs);
         }
 
-        chipCount = int.Parse(_textArr[_textArr.Count - 1]);
+        _chipCount = int.Parse(_textArr[_textArr.Count - 1]);
 
         int startPosNum = _textArr.Count - 3;
-        ListCreate(startPosNum, startPosNumList);
+        ListCreate(startPosNum, _startPosNumList);
 
         int winPosNum = _textArr.Count - 2;
-        ListCreate(winPosNum, winPosNumList);
+        ListCreate(winPosNum, _winPosNumList);
     }
     void ListCreate(int num, List<int> list)
     {
@@ -66,5 +66,30 @@ public class TxtConverter : MonoBehaviour
             int posNum = int.Parse(s);
             list.Add(posNum);
         }
+    }
+
+    public static List<Vector3> GetPositionList()
+    {
+        return _posList;
+    }
+
+    public static List<int[]> GetPairList()
+    {
+        return _pairList;
+    }
+
+    public static List<int> GetStartPosNumList()
+    {
+        return _startPosNumList;
+    }
+
+    public static List<int> GetWinPosNumList()
+    {
+        return _winPosNumList;
+    }
+
+    public static int GetChipCount()
+    {
+        return _chipCount;
     }
 }

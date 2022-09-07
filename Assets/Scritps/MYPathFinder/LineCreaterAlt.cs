@@ -15,9 +15,9 @@ public class LineCreaterAlt : MonoBehaviour
     
     void CreateLine()
     {
-        _pointsList = TxtConverter.posList;
+        _pointsList = TxtConverter.GetPositionList();
 
-        List<int[]> pairList = TxtConverter.pairList;
+        List<int[]> pairList = TxtConverter.GetPairList();
         for (int i = 0; i < pairList.Count; i++)
         {
             int first = pairList[i][0] - 1;

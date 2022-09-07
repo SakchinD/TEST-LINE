@@ -13,8 +13,8 @@ public class PathFinder : MonoBehaviour
 
     private void Start()
     {
-        _posList = TxtConverter.posList;
-        _pairList = TxtConverter.pairList;
+        _posList = TxtConverter.GetPositionList();
+        _pairList = TxtConverter.GetPairList();
     }
     public List<Vector3> StartFinding(Vector3 pos)
     {

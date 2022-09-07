@@ -27,7 +27,7 @@ public class ChipCreaterAlt : MonoBehaviour
     }
     void CreateChips()
     {
-        List<int> posIndexList = TxtConverter.startPosNumList;
+        List<int> posIndexList = TxtConverter.GetStartPosNumList();
         for(int i = 0; i < posIndexList.Count;i++)
         {
             Chip chipObj = _factory.CreateChip(_positionList[posIndexList[i] - 1], 

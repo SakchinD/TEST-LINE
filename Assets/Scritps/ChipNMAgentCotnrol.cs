@@ -21,7 +21,7 @@ public class ChipNMAgentCotnrol : MonoBehaviour
     
     private void Start()
     {
-        _posList = TxtConverter.posList;       
+        _posList = TxtConverter.GetPositionList();       
     }
     private void Update()
     {

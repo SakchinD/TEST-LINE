@@ -11,7 +11,7 @@ public class CreatePointsAlt : MonoBehaviour
     List<PosStatus> _statusList = new List<PosStatus>();
     private void Start()
     {
-        _posList = TxtConverter.posList;
+        _posList = TxtConverter.GetPositionList();
         foreach(Vector3 pos in _posList)
         {
             var s = Instantiate(posPref, pos, Quaternion.identity,transform);

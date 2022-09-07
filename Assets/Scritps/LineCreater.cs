@@ -16,16 +16,17 @@ public class LineCreater : MonoBehaviour
     
     void CreateLine()
     {
-        for(int i = 0; i < TxtConverter.posList.Count; i++)
+        List<Vector3> posList = TxtConverter.GetPositionList();
+        for (int i = 0; i < posList.Count; i++)
         {
-            GameObject point =  Instantiate(position, TxtConverter.posList[i],
+            GameObject point =  Instantiate(position, posList[i],
                 Quaternion.identity,transform);
 
             _pointsList.Add(point.transform);
         }
         OnPointsCreateEvent?.Invoke(_pointsList);
 
-        List<int[]> pairList = TxtConverter.pairList;
+        List<int[]> pairList = TxtConverter.GetPairList();
         for (int i = 0; i < pairList.Count; i++)
         {
             int first = pairList[i][0] - 1;

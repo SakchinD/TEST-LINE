@@ -9,8 +9,8 @@ public class GameControlAlt : MonoBehaviour
     List<Chip> _chipsList;
     private void Start()
     {
-        _winPosInsexs = TxtConverter.winPosNumList;
-        _posList = TxtConverter.posList;
+        _winPosInsexs = TxtConverter.GetWinPosNumList();
+        _posList = TxtConverter.GetPositionList();
         ChipCreaterAlt.OnChipsCreateEvent += GetChips;
     }
     private void OnDestroy()

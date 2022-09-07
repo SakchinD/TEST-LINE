@@ -19,7 +19,7 @@ public class PathFinderCreatePath : MonoBehaviour
         int cunPosIndex = _posList.IndexOf(curPos);
         int targetPosIndex = _posList.IndexOf(targetPos);
 
-        // проверяем можно ли дойти от этой позици
+        // проверяем можно ли дойти от данной этой позици
         foreach (var pair in _pairList)
         {
             if (pair[0] - 1 == cunPosIndex && pair[1] - 1 == targetPosIndex)
@@ -78,8 +78,8 @@ public class PathFinderCreatePath : MonoBehaviour
     
     public List<Vector3> FindPath(Vector3 curPos, Vector3 targetPos,List<Vector3> list)
     {
-        _posList = TxtConverter.posList;
-        _pairList = TxtConverter.pairList;
+        _posList = TxtConverter.GetPositionList();
+        _pairList = TxtConverter.GetPairList();
         _preIndex.Clear();
         _blockIndex.Clear();
         _pathPosList.Clear();
