@@ -51,6 +51,7 @@ public class SelectChip : MonoBehaviour
 				_chip.Move(_curObj.transform.position);
 				HightLight.ClearAllHightLights();
 				_curObj = null;
+				_chip = null;
 			}
 		}
 	}
